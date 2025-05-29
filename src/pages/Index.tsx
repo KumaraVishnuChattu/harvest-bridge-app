@@ -70,8 +70,7 @@ const Index = () => {
   };
 
   const handleLogin = (email: string) => {
-    // In a real app, you'd verify credentials here
-    // For demo purposes, we'll check if user exists in localStorage or create a demo user
+    // Check if user exists in localStorage
     const savedUser = localStorage.getItem('agrilink-user');
     
     if (savedUser) {
@@ -94,22 +93,23 @@ const Index = () => {
       }
     }
     
-    // If no saved user or email doesn't match, create a demo user
-    const demoName = email.split('@')[0]; // Use part before @ as name
+    // If no saved user or email doesn't match, create a demo user with the email name
+    const demoName = email.split('@')[0];
+    const formattedName = demoName.charAt(0).toUpperCase() + demoName.slice(1);
     const demoUserData = { 
-      name: demoName.charAt(0).toUpperCase() + demoName.slice(1), 
+      name: formattedName, 
       email, 
       role: 'farmer' as UserRole 
     };
     
     localStorage.setItem('agrilink-user', JSON.stringify(demoUserData));
-    setUserName(demoUserData.name);
+    setUserName(formattedName);
     setUserEmail(email);
     setUserRole(demoUserData.role);
     setIsLoggedIn(true);
     
     toast({
-      title: `Welcome, ${demoUserData.name}!`,
+      title: `Welcome, ${formattedName}!`,
       description: "Successfully signed in",
     });
   };
@@ -200,7 +200,7 @@ const Index = () => {
         onPageChange={setCurrentPage}
       />
       
-      <main className="pb-20 pt-16">
+      <main className="pb-20 pt-32">
         {renderCurrentPage()}
       </main>
       
