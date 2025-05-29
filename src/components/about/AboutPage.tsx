@@ -5,7 +5,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Heart, Users, TrendingUp, Shield, Award, ExternalLink } from 'lucide-react';
 
-export const AboutPage: React.FC = () => {
+interface AboutPageProps {
+  userName?: string;
+}
+
+export const AboutPage: React.FC<AboutPageProps> = ({ userName }) => {
   const features = [
     {
       icon: Users,
@@ -51,7 +55,7 @@ export const AboutPage: React.FC = () => {
           <div className="text-6xl mb-4">🌾</div>
           <h1 className="text-2xl font-bold mb-2">AgriLink</h1>
           <p className="text-green-100 mb-4">
-            Empowering farmers, enabling direct trade, ensuring fair prices
+            {userName ? `Welcome to AgriLink, ${userName}!` : 'Empowering farmers, enabling direct trade, ensuring fair prices'}
           </p>
           <Badge className="bg-white text-agri-green-700">
             Direct Market Access Platform
