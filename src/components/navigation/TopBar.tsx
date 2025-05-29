@@ -26,6 +26,8 @@ export const TopBar: React.FC<TopBarProps> = ({
   currentPage,
   onPageChange
 }) => {
+  console.log('TopBar rendered for user:', userName, 'role:', userRole);
+  
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b z-50">
       <div className="flex items-center justify-between px-4 py-3">

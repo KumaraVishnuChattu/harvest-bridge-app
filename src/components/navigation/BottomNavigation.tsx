@@ -15,6 +15,8 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
   onPageChange,
   userRole
 }) => {
+  console.log('BottomNavigation rendered with currentPage:', currentPage);
+  
   const navItems = [
     {
       id: 'dashboard' as Page,
