@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { LoginPage } from '@/components/auth/LoginPage';
 import { SignupPage } from '@/components/auth/SignupPage';
